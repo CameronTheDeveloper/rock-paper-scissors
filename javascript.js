@@ -9,7 +9,13 @@ function getComputerChoice(){
     } else{
         return "Error!";
     }
-    
+}
+
+function getUserChoice(userChoice){
+    userChoice = prompt("Type Rock, Paper, or Scissors: ");
+    let userChoiceCorrect = userChoice.charAt(0).toUpperCase() + userChoice.slice(1);
+    console.log(userChoiceCorrect);
+    return userChoiceCorrect;
 }
 
 function getResult(compChoice, userChoice, compScore, userScore){
@@ -31,11 +37,11 @@ function getResult(compChoice, userChoice, compScore, userScore){
 function playGame(){
     let compScore = 0;
     let userScore = 0;
-    let result = "";
+    let result = 0;
     for (let i = 1; i <= 5; i++){
         console.log("Round " + i + ": ")
         let compChoice = getComputerChoice();
-        let userChoice = prompt("Type Rock, Paper, or Scissors: ");
+        let userChoice = getUserChoice();
         result = getResult(compChoice, userChoice, compScore, userScore);
         if (result == 1)
         {
