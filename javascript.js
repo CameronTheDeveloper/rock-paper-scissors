@@ -12,23 +12,23 @@ function getComputerChoice(){
     
 }
 
-/*
-function getUserChoice(){
-    let userChoice = null;
-}
-*/
-
 function playGame(compChoice, userChoice){
-    //console.log(userChoice, compChoice);
     let compScore = 0;
     let userScore = 0;
-   
+    
     if (compChoice == userChoice){
-        return "Draw!"
+        return console.log("Draw!");
+    } else if ((compChoice == "Rock" && userChoice == "Paper") || 
+    (compChoice == "Paper" && userChoice == "Scissors") || 
+    (compChoice == "Scissors" && userChoice == "Rock")){
+        console.log("You Win!");
+    } else if (compChoice != userChoice){
+        console.log("You Lose!");
     }
 }
 
-for (let i = 0; i < 5; i++){
+for (let i = 1; i <= 5; i++){
+    console.log("Round " + i)
     let compChoice = getComputerChoice();
     let userChoice = prompt("Type Rock, Paper, or Scissors: ");
     playGame(compChoice, userChoice);
