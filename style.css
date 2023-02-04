@@ -51,3 +51,11 @@ button{
     align-items: center;
 }
 
+#winner{
+    padding: 8px;
+    color: rgb(251, 255, 0);
+    background-color: black;
+    font-weight: 700;
+    font-size: 34px;
+}
+

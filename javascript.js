@@ -8,6 +8,7 @@ const comp_score = document.querySelector("#computer-score");
 comp_score.textContent = "Computer score: " + compScore;
 const user_score = document.querySelector("#user-score");
 user_score.textContent = "Your score: " + userScore;
+const result = document.querySelector("#winner");
 
 const optBtn = document.querySelectorAll('button');
 const user_choice = document.querySelector('#userChoice');
@@ -29,15 +30,15 @@ function getComputerChoice(){
 
 function getResult(compChoice, userChoice, compScore, userScore){
     if (compChoice == userChoice){
-        console.log("Draw!");
+        result.textContent = "Draw!";
         return 0;
     } else if ((compChoice == "rock" && userChoice == "paper") || 
     (compChoice == "paper" && userChoice == "scissors") || 
     (compChoice == "scissors" && userChoice == "rock")){
-        console.log("You Win!");
+        result.textContent = "You Win!";
         return 1;
     } else if (compChoice != userChoice){
-        console.log("You Lose!");
+        result.textContent = "You Lose!";
         return 2;
     }
 }
