@@ -2,7 +2,15 @@ let compScore = 0;
 let userScore = 0;
 let round = 1;
 
+const roundContent = document.querySelector("#round");
+roundContent.textContent = "Round: " + round;
+const comp_score = document.querySelector("#computer-score");
+comp_score.textContent = "Computer score: " + compScore;
+const user_score = document.querySelector("#user-score");
+user_score.textContent = "Your score: " + userScore;
+
 const optBtn = document.querySelectorAll('button');
+
 function getComputerChoice(){
     let compChoice = Math.floor(Math.random() * 3);
     if (compChoice == 0){
@@ -41,15 +49,15 @@ function playRound(userChoice){
     } else if (result == 2){    //User loses
         compScore++;
     }
-    console.log("\nRound: " + round);
     console.log("User: " + userChoice);
     console.log("Computer: " + compChoice);
-    console.log("Your Score: " + userScore);
-    console.log("Computer Score: " + compScore);
     round++;
+    roundContent.textContent = "Round: " + round;
+    comp_score.textContent = "Computer score: " + compScore;
+    user_score.textContent = "Your score: " + userScore;
 }
 
-
+//results.textContent = "Round: " + round;
 optBtn.forEach((button) => {                
     button.addEventListener('click', () => {
         playRound(button.id);       //button.id = rock paper, or scissors
