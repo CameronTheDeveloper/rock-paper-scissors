@@ -1,0 +1,28 @@
+.buttons{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    gap: 30px;
+}
+
+button{
+    width: 300px;
+    font-size: 40px;
+    padding: 25px;
+    border-radius: 5px;
+    border-width: 1px;
+    font-weight: 700;
+}
+
+#rock{
+    background-color:blue;
+}
+
+#paper{
+    background-color: rgb(255, 255, 255);
+}
+
+#scissors{
+    background-color: red;
+}
+

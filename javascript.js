@@ -32,14 +32,13 @@ function getResult(compChoice, userChoice, compScore, userScore){
 }
 
 function playRound(userChoice){
-    //console.log("Round " + i + ": ")
     let compChoice = getComputerChoice();
     
     let result = getResult(compChoice, userChoice, compScore, userScore);
-    if (result == 1)
+    if (result == 1)            //User Wins
     {
         userScore++
-    } else if (result == 2){
+    } else if (result == 2){    //User loses
         compScore++;
     }
     console.log("\nRound: " + round);
