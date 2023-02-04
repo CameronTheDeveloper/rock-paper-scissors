@@ -1,3 +1,4 @@
+const optBtn = document.querySelectorAll('button');
 function getComputerChoice(){
     let compChoice = Math.floor(Math.random() * 3);
     if (compChoice == 0){
@@ -10,6 +11,13 @@ function getComputerChoice(){
         return "Error!";
     }
 }
+// 2. Step 2
+
+optBtn.forEach((button) => {
+    button.addEventListener('click', () => {
+        alert(button.id);
+    });
+});
 
 function getUserChoice(userChoice){
     userChoice = prompt("Type Rock, Paper, or Scissors: ");
@@ -38,20 +46,21 @@ function playGame(){
     let compScore = 0;
     let userScore = 0;
     let result = 0;
-    for (let i = 1; i <= 5; i++){
-        console.log("Round " + i + ": ")
-        let compChoice = getComputerChoice();
-        let userChoice = getUserChoice();
-        result = getResult(compChoice, userChoice, compScore, userScore);
-        if (result == 1)
-        {
-            userScore++
-        } else if (result == 2){
-            compScore++;
-        }
-        console.log("Computer Score: " + compScore);
-        console.log("Your Score: " + userScore);
+
+    
+    console.log("Round " + i + ": ")
+    let compChoice = getComputerChoice();
+    let userChoice = getUserChoice();
+    result = getResult(compChoice, userChoice, compScore, userScore);
+    if (result == 1)
+    {
+        userScore++
+    } else if (result == 2){
+        compScore++;
     }
+    console.log("Computer Score: " + compScore);
+    console.log("Your Score: " + userScore);
+    
 }
 
 playGame();
