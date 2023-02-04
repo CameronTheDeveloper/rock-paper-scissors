@@ -1,66 +1,58 @@
+let compScore = 0;
+let userScore = 0;
+let round = 1;
+
 const optBtn = document.querySelectorAll('button');
 function getComputerChoice(){
     let compChoice = Math.floor(Math.random() * 3);
     if (compChoice == 0){
-        return "Rock";
+        return "rock";
     } else if (compChoice == 1){
-        return "Paper";
+        return "paper";
     } else if (compChoice == 2){
-        return "Scissors";
+        return "scissors";
     } else{
         return "Error!";
     }
-}
-// 2. Step 2
-
-optBtn.forEach((button) => {
-    button.addEventListener('click', () => {
-        alert(button.id);
-    });
-});
-
-function getUserChoice(userChoice){
-    userChoice = prompt("Type Rock, Paper, or Scissors: ");
-    let userChoiceCorrect = userChoice.charAt(0).toUpperCase() + userChoice.slice(1);
-    console.log(userChoiceCorrect);
-    return userChoiceCorrect;
 }
 
 function getResult(compChoice, userChoice, compScore, userScore){
     if (compChoice == userChoice){
         console.log("Draw!");
         return 0;
-    } else if ((compChoice == "Rock" && userChoice == "Paper") || 
-    (compChoice == "Paper" && userChoice == "Scissors") || 
-    (compChoice == "Scissors" && userChoice == "Rock")){
+    } else if ((compChoice == "rock" && userChoice == "paper") || 
+    (compChoice == "paper" && userChoice == "scissors") || 
+    (compChoice == "scissors" && userChoice == "rock")){
         console.log("You Win!");
         return 1;
     } else if (compChoice != userChoice){
         console.log("You Lose!");
         return 2;
     }
-    
 }
 
-function playGame(){
-    let compScore = 0;
-    let userScore = 0;
-    let result = 0;
-
-    
-    console.log("Round " + i + ": ")
+function playRound(userChoice){
+    //console.log("Round " + i + ": ")
     let compChoice = getComputerChoice();
-    let userChoice = getUserChoice();
-    result = getResult(compChoice, userChoice, compScore, userScore);
+    
+    let result = getResult(compChoice, userChoice, compScore, userScore);
     if (result == 1)
     {
         userScore++
     } else if (result == 2){
         compScore++;
     }
-    console.log("Computer Score: " + compScore);
+    console.log("\nRound: " + round);
+    console.log("User: " + userChoice);
+    console.log("Computer: " + compChoice);
     console.log("Your Score: " + userScore);
-    
+    console.log("Computer Score: " + compScore);
+    round++;
 }
 
-playGame();
+
+optBtn.forEach((button) => {                
+    button.addEventListener('click', () => {
+        playRound(button.id);       //button.id = rock paper, or scissors
+    });
+});
