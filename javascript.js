@@ -10,7 +10,10 @@ const user_score = document.querySelector("#user-score");
 user_score.textContent = "Your score: " + userScore;
 
 const optBtn = document.querySelectorAll('button');
-
+const user_choice = document.querySelector('#userChoice');
+user_choice.textContent = "You: "
+const comp_choice = document.querySelector('#compChoice');
+comp_choice.textContent = "Computer: "
 function getComputerChoice(){
     let compChoice = Math.floor(Math.random() * 3);
     if (compChoice == 0){
@@ -49,12 +52,12 @@ function playRound(userChoice){
     } else if (result == 2){    //User loses
         compScore++;
     }
-    console.log("User: " + userChoice);
-    console.log("Computer: " + compChoice);
     round++;
     roundContent.textContent = "Round: " + round;
     comp_score.textContent = "Computer score: " + compScore;
     user_score.textContent = "Your score: " + userScore;
+    comp_choice.textContent = "Computer: " + compChoice;
+    user_choice.textContent = "You: " + userChoice;
 }
 
 //results.textContent = "Round: " + round;

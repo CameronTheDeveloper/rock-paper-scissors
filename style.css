@@ -1,5 +1,23 @@
+.choices{
+    display: flex;
+    padding: 24px;
+    justify-content: space-evenly;
+    font-size: 48px;
+    font-style: italic;
+    font-weight: 700;
+}
+
+#userChoice{
+    color: rgb(8, 60, 8);
+}
+
+#compChoice{
+    color: rgb(99, 20, 20);
+}
+
 .buttons{
     display: flex;
+    
     justify-content: center;
     padding: 40px;
     gap: 30px;
@@ -27,6 +45,9 @@ button{
 }
 
 .results{
+    display: flex;
+    flex-direction: column;
     font-size: 28px;
+    align-items: center;
 }
 
